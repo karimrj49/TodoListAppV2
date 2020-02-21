@@ -7,25 +7,25 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.todolist1.Entities.Date;
+import com.example.todolist1.Entities.Tags;
 
 import java.util.List;
 
 @Dao
-public interface DateDao {
+public interface TagsDao  {
+
+
 
     @Insert
-    void insert(Date date);
+    void inserts(Tags tag);
 
     @Delete
-    void delete(Date date);
-
+    void delete(Tags tag);
     @Update
-    void update(Date date);
+    void update(Tags tag);
 
-    @Query("SELECT * FROM date_table")
-    LiveData<List<Date>> getAllDate();
-
+    @Query("SELECT * FROM Tags_table")
+    LiveData<List<Tags>> getAllTags();
 
 
 

@@ -30,7 +30,7 @@ import java.util.concurrent.ExecutionException;
 
 public class AddActionActivity extends AppCompatActivity implements StatusRecyclerViewAdapter.OnStatusListener {
 
-    private EditText edititle , editdesc;
+    private EditText edititle , editdesc,idtag,idproject;
     private Button adds;
     private StatusViewModel statusViewModel;
     private RecyclerView recyclerView;
@@ -133,11 +133,15 @@ public class AddActionActivity extends AppCompatActivity implements StatusRecycl
     public void add (){
         edititle = (EditText) findViewById(R.id.action_title);
         editdesc = (EditText) findViewById(R.id.action_description);
+        idtag =(EditText) findViewById(R.id.idtag);
+        idproject = (EditText) findViewById(R.id.idproject);
+
         String title = edititle.getText().toString();
         String desc = editdesc.getText().toString();
-
+        String Tage = idtag.getText().toString();
+        String project = idproject.getText().toString();
         Intent data = new Intent();
-        if(title.trim().isEmpty() || desc.trim().isEmpty()){
+        if(title.trim().isEmpty() || desc.trim().isEmpty() || Tage.trim().isEmpty() || project.trim().isEmpty()){
             setResult(RESULT_CANCELED,data);
             Toast.makeText(getApplicationContext(),"Please insert a title and description",Toast.LENGTH_SHORT).show();
         }else if (rpos==-1){
@@ -148,6 +152,8 @@ public class AddActionActivity extends AppCompatActivity implements StatusRecycl
             data.putExtra("Insert title", title);
             data.putExtra("Insert description", desc);
             data.putExtra("IDS",rpos);
+            data.putExtra("insert tag",Tage);
+            data.putExtra("insert project",project);
             setResult(RESULT_OK, data);
             finish();
         }

@@ -20,7 +20,7 @@ public class DateRepository {
     public DateRepository(Application application){
 
         ActionDatabase database = ActionDatabase.getInstance(application);
-
+        DateDao = database.DatDao();
         allDate = DateDao.getAllDate();
         //allActionS = actionDao.getActionsS(p);
     }

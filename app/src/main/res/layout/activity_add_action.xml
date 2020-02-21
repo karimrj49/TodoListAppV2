@@ -61,6 +61,7 @@
         android:layout_marginLeft="8dp">
 
         <EditText
+            android:id="@+id/idtag"
             android:layout_width="145dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -71,15 +72,16 @@
             android:inputType="textPersonName" />
 
         <EditText
+            android:id="@+id/idproject"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="8dp"
             android:drawableLeft="@drawable/project"
             android:drawablePadding="8dp"
             android:hint=" Add a project"
-            android:inputType="textPersonName"
-            android:layout_marginEnd="12dp"
-            android:layout_marginRight="8dp" />
+            android:inputType="textPersonName" />
     </RelativeLayout>
 
 </LinearLayout>

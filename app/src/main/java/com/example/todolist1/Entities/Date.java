@@ -2,69 +2,53 @@ package com.example.todolist1.Entities;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
+
+import com.example.todolist1.Converters;
 
 @Entity(tableName = "date_table")
+@TypeConverters(Converters.class)
 public class Date {
 
 
     @PrimaryKey(autoGenerate = true)
     private int id ;
-    private Date createdate;
+    private java.util.Date createdate;
+    private java.util.Date DueDate;
 
-    public Date(Date createdate, Date duedate, Date deadline, int id_task, int id_project) {
-        this.createdate = createdate;
-        this.duedate = duedate;
-        this.deadline = deadline;
-        this.id_task = id_task;
-        this.id_project = id_project;
-    }
-
-    private Date duedate;
-    private Date deadline;
-
-    public Date getCreatedate() {
+    public java.util.Date getCreatedate() {
         return createdate;
     }
 
-    public void setCreatedate(Date createdate) {
+    public void setCreatedate(java.util.Date createdate) {
         this.createdate = createdate;
     }
 
-    public Date getDuedate() {
-        return duedate;
+    public java.util.Date getDueDate() {
+        return DueDate;
     }
 
-    public void setDuedate(Date duedate) {
-        this.duedate = duedate;
+    public void setDueDate(java.util.Date dueDate) {
+        DueDate = dueDate;
     }
 
-    public Date getDeadline() {
-        return deadline;
+    public java.util.Date getDeadlinedate() {
+        return deadlinedate;
     }
 
-    public void setDeadline(Date deadline) {
-        this.deadline = deadline;
+    public void setDeadlinedate(java.util.Date deadlinedate) {
+        this.deadlinedate = deadlinedate;
     }
 
-    public int getId_task() {
-        return id_task;
+    private java.util.Date deadlinedate;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setId_task(int id_task) {
-        this.id_task = id_task;
+    public int getId() {
+        return id;
     }
-
-    public int getId_project() {
-        return id_project;
-    }
-
-    public void setId_project(int id_project) {
-        this.id_project = id_project;
-    }
-
-    private int id_task;
-    private int id_project;
-
+//
 
 
 }

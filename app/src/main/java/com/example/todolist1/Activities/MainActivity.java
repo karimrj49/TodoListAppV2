@@ -20,12 +20,16 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.todolist1.Entities.Action;
+import com.example.todolist1.Entities.Projects;
 import com.example.todolist1.Entities.Status;
+import com.example.todolist1.Entities.Tags;
 import com.example.todolist1.Fragments.Inbox;
 import com.example.todolist1.Fragments.State;
 import com.example.todolist1.R;
 import com.example.todolist1.ViewModel.ActionViewModel;
+import com.example.todolist1.ViewModel.ProjectViewModel;
 import com.example.todolist1.ViewModel.StatusViewModel;
+import com.example.todolist1.ViewModel.TagsViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
@@ -36,6 +40,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public static final int NO_REQUEST = 2;
     private ActionViewModel actionViewModel;
     private StatusViewModel statusViewModel;
+    private ProjectViewModel projectViewModel ;
+    private TagsViewModel tagsViewModel;
     private RecyclerView recyclerView;
     private DrawerLayout drawerLayout;
     @Override
@@ -67,6 +73,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         actionViewModel = ViewModelProviders.of(this).get(ActionViewModel.class);
         statusViewModel = ViewModelProviders.of(this).get(StatusViewModel.class);
+        tagsViewModel = ViewModelProviders.of(this).get(TagsViewModel.class);
+        projectViewModel = ViewModelProviders.of(this).get(ProjectViewModel.class);
 
         navigationView.getMenu().getItem(3).setActionView(R.layout.add_status_nav);
         View view = navigationView.getMenu().getItem(3).getActionView();
@@ -116,9 +124,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             String title = data.getStringExtra("Insert title");
             String desc = data.getStringExtra("Insert description");
             int idstatus = data.getIntExtra("IDS",-1);
+            String Tag = data.getStringExtra("insert tag");
+            String Project = data.getStringExtra("insert project");
+
 
             Action action = new Action(title,desc,idstatus);
             actionViewModel.insert(action);
+            Tags tag = new Tags(Tag);
+            tagsViewModel.insert(tag);
+            Projects projects = new Projects(Project);
+           projectViewModel.insert(projects);
+            // Toast.makeText(this,"this message is "+Project+"",Toast.LENGTH_SHORT).show();
 
             Toast.makeText(this,"A task has been added to your agenda",Toast.LENGTH_SHORT).show();
 
