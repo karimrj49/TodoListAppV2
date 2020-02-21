@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
            projectViewModel.insert(projects);
             // Toast.makeText(this,"this message is "+Project+"",Toast.LENGTH_SHORT).show();
 
-            Toast.makeText(this,"A task has been added to your agenda",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"A task has been added to your agenda",Toast.LENGTH_SHORT).show();
 
         }
 //        else if (requestCode == NO_REQUEST && resultCode == RESULT_OK) {
